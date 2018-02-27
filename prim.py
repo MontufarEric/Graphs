@@ -21,6 +21,7 @@ def prim(G,start):
                 # print "    neigbors: ", node
                 if (current,node) not in pq and (node,current) not in pq:
                     w = G[current][node]['weight']
+
                     pq.additem((current,node), w)
 
         closedSet.add(current)
@@ -28,6 +29,7 @@ def prim(G,start):
         tup, wght = pq.popitem()
         while(tup[1] in closedSet):
             tup, wght = pq.popitem()
+        tup = (tup[0], tup[1], {'weight': wght})
         mst.append(tup)
         current = tup[1]
 
