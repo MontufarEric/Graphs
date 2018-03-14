@@ -10,7 +10,7 @@ def prim(G,start):
     stopN = G.number_of_nodes() - 1
     current = start
     closedSet = set()
-    pq = PQDict()
+    pq = PQDict(reverse = True)
     mst = []
 
     while len(mst) < stopN:

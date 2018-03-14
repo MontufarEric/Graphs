@@ -40,28 +40,28 @@ nodelist, edgelist = randGraphGen(10, 0.25)
 Comentar el bloque de codigo de abajo si se desea probar el algoritmo con un grafo aleatorio. 
 """
 
-# nodelist = [('1', {'label': 'inf'}),
-#             ('2', {'label': 'inf'}),
-#             ('3', {'label': 'inf'}),
-#             ('4', {'label': 'inf'}),
-#             ('5', {'label': 'inf'}),
-#             ('6', {'label': 'inf'})
-#             ]
-# edgelist = [('1', '2', {'weight': 0.1}),
-#              ('1', '3', {'weight': 0.2}),
-#              ('2', '4', {'weight': 0.6}),
-#              ('3', '4', {'weight': 0.7}),
-#              ('5', '4', {'weight': 0.8}),
-#              ('5', '6', {'weight': 1.0}),
-#              ('5', '1', {'weight': 1.3}),
-#              ('6', '4', {'weight': 1.1}),
-#              ]
+nodelist = [('1', {'label': 'inf'}),
+            ('2', {'label': 'inf'}),
+            ('3', {'label': 'inf'}),
+            ('4', {'label': 'inf'}),
+            ('5', {'label': 'inf'}),
+            ('6', {'label': 'inf'})
+            ]
+edgelist = [('1', '2', {'weight': 0.1}),
+             ('1', '3', {'weight': 0.2}),
+             ('2', '4', {'weight': 0.6}),
+             ('3', '4', {'weight': 0.7}),
+             ('5', '4', {'weight': 0.8}),
+             ('5', '6', {'weight': 1.0}),
+             ('5', '1', {'weight': 1.3}),
+             ('6', '4', {'weight': 1.1}),
+             ]
 
 """
 Llamado al algoritmo de prim y graficado de los grafos
 """
 
-nodelist , edgelist = randGraphGen(100, 0.25)
+#nodelist , edgelist = randGraphGen(100, 0.25)
 
 
 
@@ -70,7 +70,7 @@ G = nx.Graph()
 G.add_nodes_from(nodelist)
 G.add_edges_from(edgelist)
 
-GraphToFile(G,'Grafo2.txt')
+GraphToFile(G,'Grafo2.gv')
 
 mst = prim(G,'1')
 
@@ -86,7 +86,7 @@ print(T.edges(data=True))
 p = nv.MatrixPlot(T)
 
 
-GraphToFile(T,'arbol2.txt')
+GraphToFile(T,'arbol2.gv')
 
 p.cmap = plt.cm.get_cmap('Greens')
 
