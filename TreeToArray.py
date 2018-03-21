@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from prim import *
 from GraphToFile import*
+from TreeGen import*
 
 nodelist = [('1', {'label': 'inf'}),
             ('2', {'label': 'inf'}),
@@ -37,6 +38,8 @@ def treeToArray(T,n1,S):
         return S
     else:
         try:
+            print(n1)
+            print(T.adj[n1])
             if (len(T.adj[n1])==1):
                 x = sorted(list(T.adj[n1]))
                 S.append(x[0])
@@ -54,10 +57,11 @@ def treeToArray(T,n1,S):
 
 
 ###########################################################################################################################
-S= treeToArray(T,'1',S)
-print("S= ",S)
+# S= treeToArray(T,'1',S)
+# print("S= ",S)
 
-
+S= treeToArray(TreeGen(10),'1',S)
+print("S = ", S)
 def ArrayToTree(S):
 
     I= [n+1 for n in range(len(S)+2)]
@@ -79,6 +83,7 @@ def ArrayToTree(S):
 ####################################################################################################################
 
 
+
 list= ArrayToTree(S)
 
 Ntree = nx.Graph()
@@ -86,4 +91,5 @@ Ntree.add_edges_from(list)
 
 GraphToFile(Ntree,'arbol recuperado 1.gv')
 print("I= ",Ntree.nodes)
-print("Edges= ",Tree.edges)
+print("Edges=", Tree.edges)
+#print("Edges= ",Ntree.edges)

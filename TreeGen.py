@@ -7,7 +7,7 @@ from prim import *
 from GraphToFile import*
 
 
-def randTree(n):
+def TreeGen(n):
     nodelist = []
     edgelist = []
     nodelist.append([str(0), {'label': float('inf')}])
@@ -20,12 +20,12 @@ def randTree(n):
 
         print(j)
         edgelist.append([str(i),str(j), {'weight': np.random.randint(1,20)}])
-        print(i ,' space ',  j)
+        #print(i ,' space ',  j)
     return(nodelist, edgelist)
 
 
 
-(N, E) = randTree(10)
+(N, E) = TreeGen(10)
 
 T = nx.Graph()
 T.add_nodes_from(N)

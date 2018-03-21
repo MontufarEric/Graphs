@@ -7,5 +7,6 @@ def GraphToFile(G, filename):
     saveFile.write(txt)
     [saveFile.write('\n' + u + '--' + v + ' [Label = "' + str(G[u][v]['weight']) + '"];') for u, v, d in
      G.edges(data=True)]
+    #[print(u,v) for u, v, d in G.edges(data=True)]
     saveFile.write('\n }')
     saveFile.close()
